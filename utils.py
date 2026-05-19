@@ -7,6 +7,9 @@ import os
 import tensorflow as tf
 
 
+BACKEND_BASE_URL = os.environ["SPRING_URL"]
+
+
 # ========== Utils ==========
 def update_user_tags(user_tags, dish_tags, action: Action, alpha=0.1):
     
@@ -51,7 +54,7 @@ def validate_user_tags(user_tags, expected_length=None):
 
 def fetch_item_rating():
     resp = requests.get(
-        "http://localhost:8080/api/v1/dishes/average_rating"
+        f"{BACKEND_BASE_URL}/api/v1/dishes/average_rating"
         # auth=HTTPBasicAuth("admin@gmail.com", "12345678")
     )
     resp.raise_for_status()
@@ -60,7 +63,7 @@ def fetch_item_rating():
 
 def fetch_items():
     resp = requests.get(
-        "http://localhost:8080/api/v1/dishes/allIds"
+        f"{BACKEND_BASE_URL}/api/v1/dishes/allIds"
         # auth=HTTPBasicAuth("admin@gmail.com", "12345678")
     )
     resp.raise_for_status()

@@ -1,0 +1,10 @@
+.git
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+.venv
+.env
+.env.*
+not-use/
